@@ -28,6 +28,7 @@ RUN \
 curl -Lo - https://artifacts.elastic.co/downloads/logstash/logstash-8.12.2-linux-$(arch).tar.gz | \
     tar zxf - -C /usr/share && \
     mv /usr/share/logstash-8.12.2 /usr/share/logstash && \
+    rm -rf /usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.3.9/maven-home/lib/* &&\
 chown --recursive logstash:logstash /usr/share/logstash/ && \
     chown -R logstash:root /usr/share/logstash && \
     chmod -R g=u /usr/share/logstash && \
